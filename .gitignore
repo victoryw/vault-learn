@@ -53,4 +53,4 @@ Temporary Items
 
 # End of https://www.gitignore.io/api/macos
 
-vault-volume/config/
+vault-volume/file
