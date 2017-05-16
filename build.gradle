@@ -54,6 +54,11 @@ dependencies {
     compile 'org.postgresql:postgresql'
     //spring jpa and postgresql
 
+    //swagger
+    compile 'io.springfox:springfox-swagger2:2.6.1'
+    compile 'io.springfox:springfox-swagger-ui:2.6.1'
+    //swagger
+
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 

@@ -7,4 +7,11 @@ import javax.persistence.Id;
 public class TestTableEntity {
     @Id
     public String testId;
+
+    public TestTableEntity() {
+    }
+
+    public TestTableEntity(String key) {
+        testId = key;
+    }
 }
