@@ -44,11 +44,22 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     // End: Spring Boot Web
 
-    compile("org.springframework.cloud:spring-cloud-vault-config-databases")
+    //spring integration with vault
     compile 'org.springframework.cloud:spring-cloud-starter-vault-config'
-    // Declare the dependency for your favourite test framework you want to use in your tests.
-    // TestNG is also supported by the Gradle Test task. Just change the
-    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
-    // 'test.useTestNG()' to your build script.
+    compile("org.springframework.cloud:spring-cloud-vault-config-databases")
+    //spring integration with vault
+
+    //spring jpa and postgresql
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compile 'org.postgresql:postgresql'
+    //spring jpa and postgresql
+
     testCompile 'junit:junit:4.12'
+}
+
+checkstyle {
+    toolVersion = 7.6
+    configFile = rootProject.file('config/checkstyle/checkstyle.xml')
+    configProperties = [samedir: "${rootDir}/config/checkstyle/"]
+    checkstyleTest {}.enabled = false
 }
