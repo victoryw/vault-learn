@@ -15,10 +15,20 @@ public class HelloWorldApplication {
     @Value("${password}")
     String password;
 
+    @Value("${spring.datasource.password}")
+    String springDatasourcePassword;
+    @Value("${spring.datasource.url}")
+    String springDatasourceUrl;
+
     @PostConstruct
     private void postConstruct() {
         System.out.println("##########################");
         System.out.println(password);
+        System.out.println("##########################");
+        System.out.println("##########################");
+        System.out.println(springDatasourcePassword);
+        System.out.println("##########################");
+        System.out.println(springDatasourceUrl);
         System.out.println("##########################");
     }
 

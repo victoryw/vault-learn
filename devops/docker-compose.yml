@@ -2,10 +2,10 @@ version: '2.1'
 services:
   data-db:
     image: postgres:9.6
+    container_name: data-db
     ports:
-      - 5432
+      - 5436:5432
     environment:
-      - POSTGRES_USER=sa
       - POSTGRES_PASSWORD=r0ys1ngh4m
     healthcheck:
       test: ["CMD-SHELL", "psql -h 'localhost' -U 'postgres' -c '\\l'"]
@@ -26,6 +26,8 @@ services:
     environment:
       - VAULT_DEV_ROOT_TOKEN_ID=devroot
     entrypoint: vault server -dev  -config=/vault/config/
+    links:
+          - "data-db:db"
     depends_on:
       data-db:
         condition: service_healthy
