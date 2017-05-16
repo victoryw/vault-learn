@@ -25,11 +25,6 @@ public class HelloWorldApplication {
         System.out.println("##########################");
         System.out.println(password);
         System.out.println("##########################");
-        System.out.println("##########################");
-        System.out.println(springDatasourcePassword);
-        System.out.println("##########################");
-        System.out.println(springDatasourceUrl);
-        System.out.println("##########################");
     }
 
 }

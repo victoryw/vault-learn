@@ -54,7 +54,7 @@ dependencies {
     compile 'org.postgresql:postgresql'
     //spring jpa and postgresql
 
-    testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
 
 checkstyle {
