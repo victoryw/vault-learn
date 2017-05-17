@@ -17,7 +17,7 @@ services:
     image: vault
     container_name: vault-dev
     ports:
-      - "127.0.0.1:8201:1234"
+      - "8201:1234"
     volumes:
       - ../vault-volume/file:/vault/file:rw
       - ../vault-volume/config:/vault/config:rw
