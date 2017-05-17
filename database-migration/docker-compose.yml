@@ -1,0 +1,8 @@
+version: '2.1'
+services:
+  migration:
+    image: flyway-1
+    container_name: migrtor-db
+    command: -url=jdbc:postgresql://${DBIP}:5436/vaultdb -user=vaultuser -password=r0ys1ngh4m migrate
+    volumes:
+      - ./test/migrate:/flyway/sql
