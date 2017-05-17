@@ -43,6 +43,6 @@ public class HelloPGDbTest extends HelloWordTest {
                 .andExpect(status().isOk());
         List<TestTableEntity> entities = GetAllKeys();
         assertEquals(entities.size(), 1);
-        assertEquals(entities.get(0).testId, "1");
+        assertEquals(entities.get(0).testId,  "1");
     }
 }
