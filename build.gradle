@@ -64,5 +64,5 @@ checkstyle {
     toolVersion = 7.6
     configFile = rootProject.file('config/checkstyle/checkstyle.xml')
     configProperties = [samedir: "${rootDir}/config/checkstyle/"]
-    checkstyleTest {}.enabled = false
+//    checkstyleTest {}.enabled = false
 }

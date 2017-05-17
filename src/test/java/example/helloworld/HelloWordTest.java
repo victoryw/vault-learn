@@ -46,7 +46,7 @@ public abstract class HelloWordTest {
 
         return objectMapper.readValue(
                 mvcResult.getResponse().getContentAsByteArray(),
-                new TypeReference<List<TestTableEntity>>(){});
+                new TypeReference<List<TestTableEntity>>() { });
     }
 
     void createKey(String key) throws Exception {
