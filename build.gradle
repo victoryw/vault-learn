@@ -17,9 +17,6 @@ plugins {
     id "io.spring.dependency-management" version "1.0.2.RELEASE"
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
 jar {
     baseName = 'spring-vault-learn'
     version = '0.0.1'
@@ -60,6 +57,7 @@ dependencies {
     //swagger
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'com.h2database:h2'
 }
 
 checkstyle {
