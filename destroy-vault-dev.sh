@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd devops/
+cd ./pre-env/
 docker-compose down -v
 
 cd ../
