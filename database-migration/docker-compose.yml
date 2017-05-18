@@ -1,7 +1,7 @@
 version: '2.1'
 services:
   migration:
-    image: flyway-1:1
+    image: tianyawy/flyway-vault:1.0
     container_name: migrtor-db
     command: migrate
     environment:
