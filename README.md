@@ -10,11 +10,31 @@ deploy and use the vault to save the secret, take the spring database connection
 - [x] flyway migration with vault
 
 ## how to use
+### build the env before run/dev
+In the root folder of codebase, please run the sh start-vault-dev.sh to init the env.
+#### setup the infrastructure
+The file named as 'infrastructure-initialize.sh' in the pre-env folder, 
+is used to deploy the postgres db and vault server(which is default in dev mode).
+#### init the pre data
+The file named as 'database-initialize.sh' in the pre-env folder, 
+is used to setup the sample database and role.
+The file named as 'vault-initialize.sh' in the pre-env folder, 
+is used to import the vault data.
+#### db migration
+The migration scripts should be stored in the database-migration/test.  
+The file named as 'migrate-db.sh' in the database-migration will use the flyway to migrate.
+And the username and password is stored in the vault. 
+### run test
+There are two tests. 
+* One test is named with 'PG' means that this test will use the postgres.
+* The other one test is named with 'H2' means that this test will use the H2 as the fake datebase.   
 
+gradle test
+### run application
+gradle bootRun.
+### destroy the infrastructure and data
+source destroy-vault-dev.sh
 ## tech note
-### use the vagrant and ansible setup the vault sever
-1. sh setup-server.sh to use vault in dev mode & export the tcp/ip
-1. sh import secret to vault sever 
 ### spring integration with vault
 [spring-cloud-vault](https://github.com/spring-cloud/spring-cloud-vault)
 [spring-cloud-vault-doc](http://cloud.spring.io/spring-cloud-vault/spring-cloud-vault.html)
