@@ -7,3 +7,5 @@ export VAULT_TOKEN=devroot
 docker-compose up
 docker-compose down -v
 cd ../
+
+

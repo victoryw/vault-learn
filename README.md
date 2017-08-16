@@ -12,14 +12,10 @@ deploy and use the vault to save the secret, take the spring database connection
 ## how to use
 ### build the env before run/dev
 In the root folder of codebase, please run the sh start-vault-dev.sh to init the env.
-#### setup the infrastructure
-The file named as 'infrastructure-initialize.sh' in the pre-env folder, 
-is used to deploy the postgres db and vault server(which is default in dev mode).
-#### init the pre data
-The file named as 'database-initialize.sh' in the pre-env folder, 
-is used to setup the sample database and role.
-The file named as 'vault-initialize.sh' in the pre-env folder, 
-is used to import the vault data.
+#### setup the infrastructure && init the pre data
+all of these have been moved to https://github.com/victoryw/ansible-infrastructure-vault-learn
+by now, the application and test will use the vm build by "ansible-infrastructure-vault-learn".
+later, there would be another way to use the docker deploy on the mac.
 #### db migration
 The migration scripts should be stored in the database-migration/test.  
 The file named as 'migrate-db.sh' in the database-migration will use the flyway to migrate.

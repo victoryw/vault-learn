@@ -1,0 +1,42 @@
+---
+# ansible-playbook -i local local.yml
+- hosts: local
+  gather_facts: yes
+  vars:
+    - VAULT_TOKEN: devroot
+    - DBIP: 10.245.4.2
+
+  tasks:
+    - name: migrate database
+      docker_container:
+        name: vault-learn-migrator-instance
+        state: absent
+
+    - name: remove old database migration image
+      docker_image:
+        path: ../database-migration
+        name: vault-learn-migrator
+        state: absent
+
+    - name: build database migration
+      docker_image:
+        path: ../database-migration
+        name: vault-learn-migrator
+        state: present
+
+    - name: migrate database
+      docker_container:
+        name: vault-learn-migrator-instance
+        image: vault-learn-migrator
+        env:
+          VAULT_TOKEN={{VAULT_TOKEN}}
+          VAULT_CONNECT={{DBIP}}:8201
+          VAULT_DB_PATH=secret
+          VAULT_DB_ROLE=migrator
+          DB_URL=jdbc:postgresql://{{DBIP}}:5436/vaultdb
+        cleanup: yes
+        state: started
+      register: migrate_result
+
+    - name: echo result
+      command: echo {{migrate_result}}
